@@ -63,7 +63,7 @@ app:get("/lista", function(self)
 		"Tres"
 	}
 
-	local res = db.query("select * from user where id = ?", 1)
+	local res = db.query("select * from user")
 	self.unalista = res or demo
 
 	return { render = "listaview" }
