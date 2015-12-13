@@ -1,7 +1,8 @@
-local lapis   = require "lapis"
-local console = require("lapis.console")
-local config  = require("lapis.config").get()
-local mqtt    = require("mqtt")
+local lapis    = require "lapis"
+local console  = require("lapis.console")
+local config   = require("lapis.config").get()
+local mqtt     = require("mqtt")
+local markdown = require("markdown")
 
 -- Do the app config things
 local app = lapis.Application()
@@ -82,6 +83,14 @@ end
 -- INDEX
 app:get("/", function(self)
 	return { render  = "index" , status = 200, content_type = "text/html" }
+end)
+
+app:get("/markdown", function(getReadme)
+
+	readmeFile = io.open ("README.md", "r")
+	contents = readmeFile:read("*all")
+
+	return markdown(contents)
 end)
 
 
