@@ -10,7 +10,7 @@ return config("heroku", {
 	port = os.getenv("PORT"),
 	-- postgres_url = os.getenv("DATABASE_URL"),
 
-	return postgres_url(os.getenv("DATABASE_URL"))
+	postgres_url(os.getenv("DATABASE_URL"))
 	-- postgres = {
 	--     postgres_url = os.getenv("DATABASE_URL"),
 	-- 	host = "ec2-54-83-59-203.compute-1.amazonaws.com",
