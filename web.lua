@@ -66,8 +66,8 @@ end)
 local function generateJSON(self)
 	-- This is a lua object that gets converted to JSON
 	local demoLUAJSON = {
-		"Harris" = "programmer",
-		"Chris" = "CEO"
+		Harris = "programmer",
+		Chris = "CEO"
 	}
 
 	local response = {
