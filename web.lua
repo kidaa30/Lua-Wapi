@@ -86,7 +86,13 @@ local function appDesctiprion(self)
 		Chris = "CEO"
 	}
 
-	return {json=api}
+	local response = {
+		json = api, 
+		status = 200,
+		content_type = "application/json"
+	}
+
+	return response
 end
 
 
