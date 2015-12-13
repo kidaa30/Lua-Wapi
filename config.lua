@@ -7,7 +7,7 @@ local config = require("lapis.config")
 -- end)
 
 return config("heroku", {
-	port(os.getenv("PORT")),
+	port = os.getenv("PORT"),
 	postgres = {
 		host = "ec2-54-83-59-203.compute-1.amazonaws.com",
 		port = "5432",
