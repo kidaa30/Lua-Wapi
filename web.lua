@@ -3,6 +3,10 @@ local console  = require("lapis.console")
 local config   = require("lapis.config").get()
 local mqtt     = require("mqtt")
 local markdown = require("markdown")
+local db = require("lapis.db")
+local model = require("lapis.db.model")
+
+
 
 -- Do the app config things
 local app = lapis.Application()
@@ -53,11 +57,14 @@ end
 
 -- Muestra una lista
 app:get("/lista", function(self)
-	self.unalista = {
+	local demo = {
 		"Uno",
 		"Dos",
 		"Tres"
 	}
+
+	local res = db.query("select * from user where id = ?", 1)
+	self.unalista = res or demo
 
 	return { render = "listaview" }
 end)
