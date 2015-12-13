@@ -66,8 +66,8 @@ end)
 local function generateJSON(self)
 	-- This is a lua object that gets converted to JSON
 	local demoLUAJSON = {
-		hello = "hello message",
-		otra = "otra message"
+		"Harris" = "programmer",
+		"Chris" = "CEO"
 	}
 
 	local response = {
@@ -79,7 +79,7 @@ local function generateJSON(self)
 	return response
 end
 
-local function appDesctiprion(self)
+local function appDesctiption(self)
 
 	local api = {
 		Harris = "programmer",
@@ -114,7 +114,7 @@ app:get("/testjson", generateJSON)
 
 -- Muestra la version
 app:get("/version", renderIndex)
-app:get("/api", appDesctiprion)
+app:get("/api", appDesctiption)	
 
 
 -- The LUA CONSOLE FTW!!!
