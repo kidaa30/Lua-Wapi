@@ -79,6 +79,16 @@ local function generateJSON(self)
 	return response
 end
 
+local function appDesctiprion(self)
+
+	local api = {
+		Harris = "programmer",
+		Chris = "CEO"
+	}
+
+	return {json=api}
+end
+
 
 -- INDEX
 app:get("/", function(self)
@@ -98,6 +108,9 @@ app:get("/testjson", generateJSON)
 
 -- Muestra la version
 app:get("/version", renderIndex)
+
+
+app:get("/api", apiDescription)
 
 
 -- The LUA CONSOLE FTW!!!
