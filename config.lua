@@ -12,7 +12,7 @@ return config("heroku", {
 		host = "ec2-54-83-59-203.compute-1.amazonaws.com",
 		port = "5432",
 		user = "wddcthddvouvtr",
-		password = "_EsJ9XVoYVSYXDWbUDOTQPdrph"
+		password = "_EsJ9XVoYVSYXDWbUDOTQPdrph",
 		database = "d2k28tn5s3orl5"
 	}
 })
