@@ -117,6 +117,9 @@ app:get("/version", renderIndex)
 app:get("/api", appDesctiption)	
 
 
+app:get("/dashboard", function(self)
+	return { render = "dashboard" }
+end)
 -- The LUA CONSOLE FTW!!!
 -- app:match("/console", console.make({env="masterDeveloper"}))
 
