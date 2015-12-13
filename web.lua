@@ -114,9 +114,7 @@ app:get("/testjson", generateJSON)
 
 -- Muestra la version
 app:get("/version", renderIndex)
-
-
-app:get("/api", apiDescription)
+app:get("/api", appDesctiprion)
 
 
 -- The LUA CONSOLE FTW!!!
