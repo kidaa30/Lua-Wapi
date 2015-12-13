@@ -8,8 +8,9 @@ local config = require("lapis.config")
 
 return config("heroku", {
 	port = os.getenv("PORT"),
-	postgres_url = os.getenv("DATABASE_URL"),
+	-- postgres_url = os.getenv("DATABASE_URL"),
 	postgres = {
+	    postgres_url = os.getenv("DATABASE_URL"),
 		host = os.getenv("DATABASE_URL"),
 		port = "5432",
 		user = "wddcthddvouvtr",
