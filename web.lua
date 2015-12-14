@@ -123,10 +123,57 @@ local function appDesctiption(self)
 end
 
 
+local function getMenuList()
+	pg:connect()
+
+	local res = pg:query("select * from menu")
+
+	pg:keepalive()
+
+	local list = {}
+
+	local count = 0;
+	-- Parse the Result
+	for objectIndex, objectTable in ipairs( res ) do
+		
+		count = count +1
+
+		local button = {}
+		-- Get the data from the object
+		for key, value in pairs(objectTable) do
+
+			if(key == "id") then
+	   			button.id = value
+	   		end
+
+	   		if(key == "label") then
+	   			button.label = value
+	   		end
+
+			if(key == "link") then
+	   			button.link = value
+	   		end
+
+	   		if(key == "icon") then
+	   			button.icon = value
+	   		end
+
+		end
+
+		list[count] = button
+	end		
+
+	return list
+end
+
 -- INDEX
 app:get("/", function(self)
 	-- Make a test app.
 	self.siteData = require("testData")
+	self.title = "My Pro Dashboard"
+
+
+	self.siteData.menuButtons = getMenuList()
 
 	return { render = "dashboard" }
 end)
@@ -147,48 +194,13 @@ app:get("/version", renderIndex)
 app:get("/api", appDesctiption)	
 
 
+
+
 app:get("/dashboard", function(self)
 	-- Make a test app.
 	self.siteData = require("testData")
 	self.title = "My Pro Dashboard"
-
-
-	-- Connect to the database
-	pg:connect()
-	-- Do the Query
-	local res = pg:query("select * from menu")			
-	pg:keepalive()
-
-	local menuButtonList = {}
-
-	-- Parse the Result
-	for objectIndex, objectTable in ipairs( res ) do
-
-		local menuButton = {}
-
-		-- Make a count
-		countResults = countResults+1
-		
-		-- Get the data from the object
-		for key, value in pairs(objectTable) do	
-			if(key == "id") then
-	   			menuButton.id = value
-	   		else if (key == "label") then
-	   			menuButton.label = value
-   			else if (key == "link") then
-	   			menuButton.link = value
-   			else if (key == "icon") then
-	   			menuButton.icon = value
-	   		end
-		end
-
-
-		menuButtonList[countResults] = menuButton
-	end		
 	
-	-- Set the list of menu buttons
-	self.siteData.menuButtons = menuButtonList
-
 	return { render = "dashboard" }
 end)
 
