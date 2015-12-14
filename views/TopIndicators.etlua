@@ -1,9 +1,15 @@
 <!-- MAIN INDICATORS PANEL -->
 <%
-        newcomments = 26
-        newcomments_lbl = "New Comments!"
-        newtasks = 12
-        newtasks_lbl = "New Tasks!"
+    mydata = {
+        newcomments = 26,
+        newcomments_lbl = "New Comments!",
+        newtasks = 12,
+        newtasks_lbl = "New Tasks!",
+        neworders = 10,
+        neworders_lbl = "New Orders!",
+        newtickets= 100,
+        newtickets_lbl = "Trouble Tickets!",
+    }
 %>
 
 
@@ -69,8 +75,8 @@
                         <i class="fa fa-shopping-cart fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>New Orders!</div>
+                        <div class="huge"><%= mydata.neworders %></div>
+                        <div><%= mydata.neworders_lbl %></div>
                     </div>
                 </div>
             </div>
@@ -93,8 +99,8 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Support Tickets!</div>
+                        <div class="huge"><%= mydata.newtickets %></div>
+                        <div><%= mydata.newtickets_lbl %></div>
                     </div>
                 </div>
             </div>
