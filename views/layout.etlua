@@ -35,10 +35,7 @@
     <![endif]-->
 </head>
 
-<%
-    siteName = "Lua Wapi Framework"
 
-%>
 
 <body>
 	<div id="wrapper">
