@@ -1,8 +1,8 @@
 <%
         newcomments = 26,
-        newcomments_lbl = "New Comments!",
-        newtasks = 12,
-        newtasks_lbl = "New Tasks!",
+        newcomments_lbl = "New Comments!"
+        newtasks = 12
+        newtasks_lbl = "New Tasks!"
 %>
 
 <!-- MAIN INDICATORS PANEL -->
