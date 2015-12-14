@@ -3,7 +3,7 @@ local console  = require("lapis.console")
 local config   = require("lapis.config").get()
 local mqtt     = require("mqtt")
 local markdown = require("markdown")
-local pgmoon = require("pgmoon")
+local db = require("lapis.db")
 local pg = pgmoon.new({
 	host = "ec2-54-83-59-203.compute-1.amazonaws.com",
     user = "wddcthddvouvtr",
@@ -74,8 +74,20 @@ app:get("/lista", function(self)
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 	end
 
-	local res = pg:query("select * from user")
-	self.unalista = res
+	local res, error2 = db:query("select * from user")
+
+	if(error2)
+		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
+	
+
+	local n = 0
+	self.unalista = {}
+	for k, v in pairs( myTable ) do
+   		print(k, v)
+
+   		n = n+1
+   		self.unalista[n] = k
+	end
 
 	return { render = "listaview" }
 end)
