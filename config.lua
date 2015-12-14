@@ -14,8 +14,7 @@ return config("heroku", {
 		user = "wddcthddvouvtr",
 		password = "_EsJ9XVoYVSYXDWbUDOTQPdrph",
 		database = "d2k28tn5s3orl5",
-		ssl = true,
-		sslfactory = 
+		ssl = true
 	},
 	postgresql_url = os.getenv("DATABASE_URL"),
 })
