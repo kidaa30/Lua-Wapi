@@ -68,7 +68,9 @@ app:get("/lista", function(self)
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 	else
 		-- Success connecting
-		local res, error2 = pg:query("select * from posts")
+		local res, error2 = pg:query("select * from posts")			
+		-- KEepalive
+		pg:keepalive()
 
 		if(error2) then
 			ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
@@ -78,7 +80,7 @@ app:get("/lista", function(self)
 			local listaLoad = {}
 	
 
-			for k, v in ipairs( res ) do
+			for k, v in pairs( res ) do
 				countResults = countResults+1
 
 
@@ -93,8 +95,6 @@ app:get("/lista", function(self)
 		end
 	end
 
-	-- KEepalive
-	pg:keepalive()
 
 	return { render = "listaview" }
 end)
