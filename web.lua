@@ -84,11 +84,13 @@ app:get("/lista", function(self)
 		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
 	end
 
+	local n = 0
 	local listaLoad = {}
 	
-	-- Loop la respuesta y agregarla a la lista
+	-- Loop la respuesta y agregarla a la l
 	for k, v in pairs( res ) do
-   		listaLoad:insert(k)
+   		n = n+1
+   		self.unalista[n] = k
 	end
 
 	-- Esta es la lista que se renderea
