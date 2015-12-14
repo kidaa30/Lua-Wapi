@@ -158,9 +158,13 @@ local function getMenuList()
 	   			button.icon = value
 	   		end
 
+	   		if(key == "sortorder") then
+	   			button.sortorder = value
+	   		end
+
 		end
 
-		list[count] = button
+		list[button.sortorder] = button
 	end		
 
 	return list
