@@ -61,7 +61,7 @@ end
 
 -- Muestra una lista
 app:get("/lista", function(self)
-	
+	local listaLoad = {}
 	-- Connect to the database
 	local succes, err = pg:connect()
 	if (err) then
@@ -77,24 +77,22 @@ app:get("/lista", function(self)
 		else
 			-- Success with the Query
 			local countResults = 0
-			local listaLoad = {}
+			
 	
 
 			for k, v in pairs( res ) do
 				countResults = countResults+1
-
-
 				for kk, vv in pairs(v) do
-		   			table.insert(listaLoad, kk)
+		   			table.insert(listaLoad, vv)
 				end
 
 			end
 
 			-- Esta es la lista que se renderea
-			self.unalista = listaLoad
+			
 		end
 	end
-
+	self.unalista = listaLoad
 
 	return { render = "listaview" }
 end)
