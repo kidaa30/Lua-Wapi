@@ -76,16 +76,25 @@ app:get("/lista", function(self)
 
 	local res, error2 = pg:query("select * from user")
 
+	-- KEepalive
+	pg:keepalive()
+	
+
 	if(error2) then
 		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
 	end
 
 	local n = 0
-	self.unalista = {}
+	local listaLoad = {}
+	
+	-- Loop la respuesta y agregarla a la lista
 	for k, v in pairs( res ) do
    		n = n+1
-   		self.unalista[n] = k
+   		listaLoad[n] = k
 	end
+
+	-- Esta es la lista que se renderea
+	self.unalista = listaLoad
 
 	return { render = "listaview" }
 end)
