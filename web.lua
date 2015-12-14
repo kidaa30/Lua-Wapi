@@ -3,13 +3,13 @@ local console  = require("lapis.console")
 local config   = require("lapis.config").get()
 local mqtt     = require("mqtt")
 local markdown = require("markdown")
-local db = require("lapis.db")
-local pg = pgmoon.new({
-	host = "ec2-54-83-59-203.compute-1.amazonaws.com",
-    user = "wddcthddvouvtr",
-    password = "_EsJ9XVoYVSYXDWbUDOTQPdrph",
-    database = "d2k28tn5s3orl5"
-})
+local db 	= require("lapis.db")
+-- local pg = pgmoon.new({
+-- 	host = "ec2-54-83-59-203.compute-1.amazonaws.com",
+--     user = "wddcthddvouvtr",
+--     password = "_EsJ9XVoYVSYXDWbUDOTQPdrph",
+--     database = "d2k28tn5s3orl5"
+-- })
 
 
 
