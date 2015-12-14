@@ -3,8 +3,13 @@ local console  = require("lapis.console")
 local config   = require("lapis.config").get()
 local mqtt     = require("mqtt")
 local markdown = require("markdown")
-local db = require("lapis.db")
-local model = require("lapis.db.model")
+local pgmoon = require("pgmoon")
+local pg = pgmoon.new({
+	host = "ec2-54-83-59-203.compute-1.amazonaws.com",
+    user = "wddcthddvouvtr",
+    password = "_EsJ9XVoYVSYXDWbUDOTQPdrph",
+    database = "d2k28tn5s3orl5"
+})
 
 
 
@@ -63,8 +68,14 @@ app:get("/lista", function(self)
 		"Tres"
 	}
 
-	local res = db.query("select * from user")
-	self.unalista = res or demo
+	local succes, err = pg:connect()
+
+	if(!success)
+		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
+	end
+
+	local res = pg:query("select * from user")
+	self.unalista = res
 
 	return { render = "listaview" }
 end)
