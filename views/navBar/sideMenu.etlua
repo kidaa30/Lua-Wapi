@@ -17,7 +17,7 @@
                 <!-- /input-group -->
             </li>
 
-            <% for menuButton in ipairs(siteData.menuButtons) do %>
+            <% for index, menuButton in ipairs(siteData.menuButtons) do %>
 
                 <!-- DASHBOARD BUTTON -->
                 <li>
