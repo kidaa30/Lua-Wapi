@@ -145,6 +145,8 @@ app:get("/api", appDesctiption)
 
 
 app:get("/dashboard", function(self)
+	self.page_title = "Dashboard"
+
 	return { render = "dashboard" }
 end)
 -- The LUA CONSOLE FTW!!!
