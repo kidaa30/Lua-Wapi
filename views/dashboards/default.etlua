@@ -1,9 +1,12 @@
+
+
+
 <% render("views.dashboards.TopIndicators") %>
 
-
-<!-- /.row -->
 <div class="row">
     <div class="col-lg-8">
+        
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
@@ -14,25 +17,25 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="#">Action</a>
-                            </li>
-                            <li><a href="#">Another action</a>
-                            </li>
-                            <li><a href="#">Something else here</a>
-                            </li>
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Separated link</a>
-                            </li>
+                            <li><a href="#">Separated link</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div id="morris-area-chart"></div>
             </div>
             <!-- /.panel-body -->
         </div>
+        
+
+
         <!-- /.panel -->
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -57,6 +60,9 @@
                     </div>
                 </div>
             </div>
+            
+
+
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="row">
@@ -71,6 +77,7 @@
                                         <th>Amount</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
                                     <tr>
                                         <td>3326</td>
@@ -121,6 +128,7 @@
                                         <td>$943.45</td>
                                     </tr>
                                 </tbody>
+                                
                             </table>
                         </div>
                         <!-- /.table-responsive -->
