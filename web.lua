@@ -69,15 +69,12 @@ app:get("/lista", function(self)
 	local succes, err = pg:connect()
 	if ((success == nil) and (err == not nil)) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
-		pg:keepalive()
-		return
 	end
 		
 	-- Do the Query
 	local res, error2 = pg:query("select * from posts")			
 	if(res == nil) then
 		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
-		return 
 	else
 		print("NumQueries: " .. error2)
 	end 
