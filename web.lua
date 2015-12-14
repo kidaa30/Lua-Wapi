@@ -15,9 +15,8 @@ local pg = pgmoon.new({
 
 -- Do the app config things
 local app = lapis.Application()
+
 app:enable("etlua")
-
-
 app.layout = require "views.layout"		-- Sets the layout we are using.
 
 
@@ -62,42 +61,43 @@ end
 
 -- Muestra una lista
 app:get("/lista", function(self)
-	local demo = {
-		"Uno",
-		"Dos",
-		"Tres"
-	}
-
+	
+	-- Connect to the database
 	local succes, err = pg:connect()
-
 	if (err) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
-	end
+	else
+		-- Success connecting
+		local res, error2 = pg:query("select * from posts")
 
-	local res, error2 = pg:query("select * from posts")
-
-	-- KEepalive
-	pg:keepalive()
+		if(error2) then
+			ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
+		else
+			-- Success with the Query
+			local countResults = 0
+			local listaLoad = {}
 	
 
-	if(error2) then
-		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
-	end
+			for k, v in ipairs( res ) do
+				countResults = countResults+1
 
-	local n = 0
-	local listaLoad = {}
-	
 
-	for k, v in ipairs( res ) do
-		for kk, vv in pairs(v) do
-			n = n+1
-   			table.insert(listaLoad, kk)
+				for kk, vv in pairs(v) do
+		   			table.insert(listaLoad, kk)
+				end
+				
+			end
 
+			-- Esta es la lista que se renderea
+			self.unalista = listaLoad
 		end
 	end
 
-	-- Esta es la lista que se renderea
-	self.unalista = listaLoad
+	if not self.unalista then
+		self.unalista = {}
+	end
+	-- KEepalive
+	pg:keepalive()
 
 	return { render = "listaview" }
 end)
