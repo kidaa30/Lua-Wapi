@@ -1,3 +1,3 @@
 #!/bin/bash
-git push heroku master
+git add .; git commit -m "Fast commit"; git push heroku master
 #ohhh
