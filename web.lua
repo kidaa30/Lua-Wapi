@@ -74,7 +74,7 @@ app:get("/lista", function(self)
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 	end
 
-	local res, error2 = pg:query("select * from user")
+	local res, error2 = pg:query("select * from posts")
 
 	-- KEepalive
 	pg:keepalive()
@@ -92,7 +92,7 @@ app:get("/lista", function(self)
 		for kk, vv in pairs(v) do
 			n = n+1
    			table.insert(listaLoad, kk)
-   			
+
 		end
 	end
 
