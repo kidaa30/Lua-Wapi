@@ -100,7 +100,7 @@ app:get("/lista", function(self)
 --   }
 --  }
 	for k, v in pairs( res ) do
-		for kk, vv in v do
+		for kk, vv in pairs(v) do
 			n = n+1
    			table.insert(listaLoad, kk)
 		end
