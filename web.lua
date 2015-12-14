@@ -88,9 +88,22 @@ app:get("/lista", function(self)
 	local listaLoad = {}
 	
 	-- Loop la respuesta y agregarla a la l
+	-- Mightreturn:
+-- 	{
+--   {
+--     id = 123,
+--     name = "Leafo"
+--   },
+--   {
+--     id = 234,
+--     name = "Lee"
+--   }
+--  }
 	for k, v in pairs( res ) do
-   		n = n+1
-   		table.insert(listaLoad, k)
+		for(kk, vv in v) do
+			n = n+1
+   			table.insert(listaLoad, kk)
+		end
 	end
 
 	-- Esta es la lista que se renderea
