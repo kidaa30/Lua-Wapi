@@ -1,4 +1,4 @@
-<% render("views.TopIndicators") %>
+<% render("views.dashboards.TopIndicators") %>
 
 
 <!-- /.row -->
