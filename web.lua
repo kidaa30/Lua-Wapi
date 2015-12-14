@@ -70,7 +70,7 @@ app:get("/lista", function(self)
 
 	local succes, err = pg:connect()
 
-	if (not success) then
+	if (err) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 	end
 
