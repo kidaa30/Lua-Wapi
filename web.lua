@@ -67,7 +67,7 @@ app:get("/lista", function(self)
 
 	-- Connect to the database
 	local succes, err = pg:connect()
-	if (success == nil) and (err == not nil) then
+	if ((success == nil) and (err == not nil)) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 		pg:keepalive()
 		return
