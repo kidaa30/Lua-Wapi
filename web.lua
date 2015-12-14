@@ -153,8 +153,45 @@ app:get("/dashboard", function(self)
 	self.title = "My Pro Dashboard"
 
 
+	-- Connect to the database
+	pg:connect()
+	-- Do the Query
+	local res = pg:query("select * from menu")			
+	pg:keepalive()
+
+	local menuButtonList = {}
+
+	-- Parse the Result
+	for objectIndex, objectTable in ipairs( res ) do
+
+		local menuButton = {}
+
+		-- Make a count
+		countResults = countResults+1
+		
+		-- Get the data from the object
+		for key, value in pairs(objectTable) do	
+			if(key == "id") then
+	   			menuButton.id = value
+	   		else if (key == "label") then
+	   			menuButton.label = value
+   			else if (key == "link") then
+	   			menuButton.link = value
+   			else if (key == "icon") then
+	   			menuButton.icon = value
+	   		end
+		end
+
+
+		menuButtonList[countResults] = menuButton
+	end		
+	
+	-- Set the list of menu buttons
+	self.siteData.menuButtons = menuButtonList
+
 	return { render = "dashboard" }
 end)
+
 -- The LUA CONSOLE FTW!!!
 app:match("/console", console.make({env="heroku"}))
 
