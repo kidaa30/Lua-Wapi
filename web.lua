@@ -145,7 +145,7 @@ app:get("/api", appDesctiption)
 
 
 app:get("/dashboard", function(self)
-	self.page_title = "Dashboard"
+	self.title = "My Dashboard"
 
 	return { render = "dashboard" }
 end)
