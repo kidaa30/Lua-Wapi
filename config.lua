@@ -10,7 +10,7 @@ return config("heroku", {
 	port = os.getenv("PORT"),
 	postgresql_url = os.getenv("DATABASE_URL"),
 	postgres = {
-		host = "0.0.0.0",
+		host = "127.0.0.1",
 		url = os.getenv("DATABASE_URL"),
 		port = "5432",
 		user = "wddcthddvouvtr",
