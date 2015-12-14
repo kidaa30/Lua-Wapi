@@ -139,7 +139,7 @@ app:get("/dashboard", function(self)
 	return { render = "dashboard" }
 end)
 -- The LUA CONSOLE FTW!!!
--- app:match("/console", console.make({env="masterDeveloper"}))
+app:match("/console", console.make({env="heroku"}))
 
 -- Serves a lapis web app.
 lapis.serve(app)
