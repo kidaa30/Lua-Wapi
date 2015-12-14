@@ -79,7 +79,7 @@ app:get("/lista", function(self)
 		for key, value in pairs(objectTable) do
 			
 			if(key == "content") then
-	   			table.insert(listaLoad, vv)
+	   			table.insert(listaLoad, value)
 	   		end
 		end
 	end		
