@@ -74,11 +74,12 @@ app:get("/lista", function(self)
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
 	end
 
+	-- Get a list of users.
 	local res, error2 = db:query("select * from user")
 
-	if(error2)
+	if(error2) then
 		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
-	
+	end
 
 	local n = 0
 	self.unalista = {}
