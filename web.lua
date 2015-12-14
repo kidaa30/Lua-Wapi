@@ -90,7 +90,7 @@ app:get("/lista", function(self)
 	-- Loop la respuesta y agregarla a la l
 	for k, v in pairs( res ) do
    		n = n+1
-   		self.unalista[n] = k
+   		self.unaLista[n] = k
 	end
 
 	-- Esta es la lista que se renderea
