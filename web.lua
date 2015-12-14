@@ -67,22 +67,31 @@ app:get("/lista", function(self)
 
 	-- Connect to the database
 	local succes, err = pg:connect()
-	if (err) then
+	if (success == nil) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
+		pg:keepalive()
 		return
 	end
 		
 	-- Do the Query
 	local res, error2 = pg:query("select * from posts")			
-	if(error2) then
+	if(res == nil) then
 		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
-		return
+		return 
+	else
+		print("NumQueries: " .. error2)
 	end 
-	
-	for k, v in pairs( res ) do
+
+	-- Parse the Result
+	for objectIndex, objectTable in ipairs( res ) do
+		-- Make a count
 		countResults = countResults+1
-		for kk, vv in pairs(v) do
-   			table.insert(listaLoad, vv)
+		-- Get the data from the object
+		for key, value in pairs(objectTable) do
+			
+			if(key == "content") then
+	   			table.insert(listaLoad, vv)
+	   		end
 		end
 	end		
 	
