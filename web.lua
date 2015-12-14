@@ -83,8 +83,6 @@ app:get("/lista", function(self)
 	local n = 0
 	self.unalista = {}
 	for k, v in pairs( res ) do
-   		print(k, v)
-
    		n = n+1
    		self.unalista[n] = k
 	end
