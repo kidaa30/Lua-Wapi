@@ -1,14 +1,4 @@
 
-<%
-
-    mensaje = {
-        from = "Jose Llausas",
-        whenfrom = "Yesterday",
-        message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend..."
-    }
-
-%>
-
 <li class="dropdown">
     <!-- Dropdown button -->
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -22,12 +12,12 @@
             <li>
                 <a href="#">
                     <div>
-                        <strong><%= mensaje.from %></strong>
+                        <strong><%= siteData.mensaje.from %></strong>
                         <span class="pull-right text-muted">
-                            <em><%= mensaje.whenfrom %></em>
+                            <em><%= siteData.mensaje.whenfrom %></em>
                         </span>
                     </div>
-                    <div><%= mensaje.message %></div>
+                    <div><%= siteData.mensaje.message %></div>
                 </a>
             </li>
             <li class="divider"></li>

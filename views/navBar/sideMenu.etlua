@@ -25,7 +25,7 @@
 
             <!-- CHARTS BUTTON -->
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Indicadores<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="flot.html">Flot Charts</a>
@@ -39,17 +39,17 @@
             
             <!--  TABLES  BUTTON -->
             <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Resultados</a>
             </li>
             
             <!-- FORMS BUTTON -->
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Calendarizar</a>
             </li>
             
             <!-- UI ELEMENTS BUTTON -->
             <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Configurar<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="panels-wells.html">Panels and Wells</a>
@@ -75,7 +75,7 @@
             
             <!-- MUTLI LEVEL DROPDOWN BUTTON -->
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Organigrama<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="#">Second Level Item</a>
@@ -107,7 +107,7 @@
            
             <!-- SAMPLE PAGES -->
             <li>
-                <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-files-o fa-fw"></i>Reportes<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="blank.html">Blank Page</a>
