@@ -125,7 +125,10 @@ end
 
 -- INDEX
 app:get("/", function(self)
-	return { render  = "index" , status = 200, content_type = "text/html" }
+	-- Make a test app.
+	self.siteData = require("testData")
+
+	return { render = "dashboard" }
 end)
 
 app:get("/markdown", function(getReadme)
@@ -145,6 +148,8 @@ app:get("/api", appDesctiption)
 
 
 app:get("/dashboard", function(self)
+	-- Make a test app.
+	self.siteData = require("testData")
 	self.title = "My Pro Dashboard"
 
 

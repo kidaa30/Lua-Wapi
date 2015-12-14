@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A Lua web API">
     <meta name="author" content="Lua Wapi">
-	<title><%= title or "Lua Wapi" %></title>
+	<title><%= siteData.title or "Lua Wapi Framework" %></title>
 
 	<!-- Bootstrap Core CSS -->
     <link href="static/sb/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +34,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
-
 
 <body>
 	<div id="wrapper">
