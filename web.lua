@@ -68,11 +68,11 @@ app:get("/lista", function(self)
 		"Tres"
 	}
 
-	local succes, err = pg:connect()
+	-- local succes, err = pg:connect()
 
-	if (err) then
-		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
-	end
+	-- if (err) then
+	-- 	ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
+	-- end
 
 	-- Get a list of users.
 	local res, error2 = db:query("select * from user")
