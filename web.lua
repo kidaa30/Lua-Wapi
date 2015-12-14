@@ -85,7 +85,7 @@ app:get("/lista", function(self)
 				for kk, vv in pairs(v) do
 		   			table.insert(listaLoad, kk)
 				end
-				
+
 			end
 
 			-- Esta es la lista que se renderea
@@ -93,9 +93,6 @@ app:get("/lista", function(self)
 		end
 	end
 
-	if not self.unalista then
-		self.unalista = {}
-	end
 	-- KEepalive
 	pg:keepalive()
 
