@@ -61,38 +61,33 @@ end
 
 -- Muestra una lista
 app:get("/lista", function(self)
+	
 	local listaLoad = {}
+	local countResults = 0
+
 	-- Connect to the database
 	local succes, err = pg:connect()
 	if (err) then
 		ngx.log(ngx.NOTICE, "Bad bad bad: " .. err)
-	else
-		-- Success connecting
-		local res, error2 = pg:query("select * from posts")			
-		-- KEepalive
-		pg:keepalive()
-
-		if(error2) then
-			ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
-		else
-			-- Success with the Query
-			local countResults = 0
-			
-	
-
-			for k, v in pairs( res ) do
-				countResults = countResults+1
-				for kk, vv in pairs(v) do
-		   			table.insert(listaLoad, vv)
-				end
-
-			end
-
-			-- Esta es la lista que se renderea
-			
-		end
+		return
 	end
+		
+	-- Do the Query
+	local res, error2 = pg:query("select * from posts")			
+	if(error2) then
+		ngx.log(ngx.NOTICE, "[*Bad*] bad bad --->: " .. error2)
+		return
+	end 
+	
+	for k, v in pairs( res ) do
+		countResults = countResults+1
+		for kk, vv in pairs(v) do
+   			table.insert(listaLoad, vv)
+		end
+	end		
+	
 	self.unalista = listaLoad
+	pg:keepalive()
 
 	return { render = "listaview" }
 end)
